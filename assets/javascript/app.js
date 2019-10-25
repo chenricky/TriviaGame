@@ -1,6 +1,8 @@
-var images = ["./assets/images/bootstrap.png", "./assets/images/github-logo.jpg", ".assets/images/logo_JavaScript.png"];
+var images = ["./assets/images/bootstrap.png", "./assets/images/github-logo.jpg", "./assets/images/logo_JavaScript.png"];
 var showImage;
 var count = 0;
+var downloadTimer;
+var timeleft;
 
 $("#start").click(startSlideshow);
 $("#sendButton").click(nextImage);
@@ -10,7 +12,8 @@ function displayImage() {
   }
 
   function nextImage() {
-    clearTimeout(downloadTimer);
+    //clearTimeout(downloadTimer);
+    //clearTimeout(timeleft);
     var timeleft = 10;
     var downloadTimer = setInterval(function(){
       document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
@@ -24,9 +27,9 @@ function displayImage() {
 
     //  TODO: Increment the count by 1.
     count++;
-  
+    displayImage();
     // TODO: Show the loading gif in the "image-holder" div.
-    $("#image-holder").html("<img src='./assets/images/loading.gif' width='200px'/>");
+    //$("#image-holder").html("<img src='./assets/images/loading.gif' width='200px'/>");
   
     
     // TODO: If the count is the same as the length of the image array, reset the count to 0.
@@ -34,7 +37,7 @@ function displayImage() {
       count = 0;
     }
     // TODO: Use a setTimeout to run displayImage after 1 second.
-    setTimeout(displayImage, 1000);
+   // setTimeout(displayImage, 1000);
   
   }
   function startSlideshow() {
