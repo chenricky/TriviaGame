@@ -1,14 +1,27 @@
-var images = ["./assets/images/bootstrap.png", "./assets/images/github-logo.jpg", ".assets//images/logo_JavaScript.png"];
+var images = ["./assets/images/bootstrap.png", "./assets/images/github-logo.jpg", ".assets/images/logo_JavaScript.png"];
 var showImage;
 var count = 0;
 
 $("#start").click(startSlideshow);
+$("#sendButton").click(nextImage);
 
 function displayImage() {
     $("#image-holder").html("<img src=" + images[count] + " width='400px'>");
   }
 
   function nextImage() {
+    clearTimeout(downloadTimer);
+    var timeleft = 10;
+    var downloadTimer = setInterval(function(){
+      document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+      timeleft -= 1;
+      if(timeleft <= 0){
+        clearInterval(downloadTimer);
+        document.getElementById("countdown").innerHTML = "Finished"
+      }
+    }, 1000);
+
+
     //  TODO: Increment the count by 1.
     count++;
   
@@ -27,8 +40,18 @@ function displayImage() {
   function startSlideshow() {
 
     // TODO: Use showImage to hold the setInterval to run nextImage.
-    showImage = setInterval(nextImage, 3000);
+   // showImage = setInterval(nextImage, 3000);
   
+    var timeleft = 10;
+    var downloadTimer = setInterval(function(){
+      document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+      timeleft -= 1;
+      if(timeleft <= 0){
+        clearInterval(downloadTimer);
+        document.getElementById("countdown").innerHTML = "Finished"
+      }
+    }, 1000);
+
   }
   
   function stopSlideshow() {
@@ -37,5 +60,20 @@ function displayImage() {
   
   }
   
+
+  function timer() {
+  var timeleft = 10;
+  var downloadTimer = setInterval(function(){
+    document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+    timeleft -= 1;
+    if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      document.getElementById("countdown").innerHTML = "Finished"
+    }
+  }, 1000);
+  }
+
+
+
   // need to add a countdown timer fucntion
   displayImage();
