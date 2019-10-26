@@ -55,7 +55,6 @@ function displayImage() {
       }
     }, 1000);
 
-    console.log(radioObject.value);
 
   }
   
@@ -83,3 +82,5 @@ function displayImage() {
 
   // need to add a countdown timer fucntion
   displayImage();
+  var selector = $('input[name="answer"]:checked').value;
+  console.log(selector);
