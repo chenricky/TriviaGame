@@ -82,5 +82,10 @@ function displayImage() {
 
   // need to add a countdown timer fucntion
   displayImage();
-  var selector = $('input[name="answer"]:checked').value;
-  console.log(selector);
+  
+  function myFunction(browser) {
+    document.getElementById("result").value = browser;
+    console.log("your answer is: " + browser);
+    $("#result").text("your answer is: " + browser);
+  }
+  
