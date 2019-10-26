@@ -5,14 +5,14 @@ var downloadTimer;
 var timeleft;
 
 $("#start").click(startSlideshow);
-$("#sendButton").click(nextImage);
+$("#nextQuestion").click(nextImage);
 
 function displayImage() {
     $("#image-holder").html("<img src=" + images[count] + " width='400px'>");
   }
 
   function nextImage() {
-    //clearTimeout(downloadTimer);
+    clearTimeout(downloadTimer);
     //clearTimeout(timeleft);
     var timeleft = 10;
     var downloadTimer = setInterval(function(){
@@ -55,6 +55,8 @@ function displayImage() {
       }
     }, 1000);
 
+    console.log(radioObject.value);
+
   }
   
   function stopSlideshow() {
@@ -75,6 +77,7 @@ function displayImage() {
     }
   }, 1000);
   }
+
 
 
 
