@@ -1,14 +1,23 @@
-var images = ["./assets/images/bootstrap.png", "./assets/images/github-logo.jpg", "./assets/images/logo_JavaScript.png"];
+var images = ["./assets/images/RedPillBluePill.jpg ", "./assets/images/nemo.jpg", "./assets/images/psycho.jpg"];
+var answerArray=["Yes","No","No"];
 var showImage;
 var count = 0;
 var downloadTimer;
 var timeleft;
+var i;
+var browser;
 
 $("#start").click(startSlideshow);
 $("#nextQuestion").click(nextImage);
 
 function displayImage() {
     $("#image-holder").html("<img src=" + images[count] + " width='400px'>");
+   // if (browser == answerArray[count]) {
+   //   alert("You are correct");
+   // }
+   // else {
+   //   alert("You are wrong");
+   // }
   }
 
   function nextImage() {
@@ -20,7 +29,7 @@ function displayImage() {
       timeleft -= 1;
       if(timeleft <= 0){
         clearInterval(downloadTimer);
-        document.getElementById("countdown").innerHTML = "Finished"
+        document.getElementById("countdown").innerHTML = "Time is up!"
       }
     }, 1000);
 
@@ -89,3 +98,12 @@ function displayImage() {
     $("#result").text("your answer is: " + browser);
   }
   
+  //function checkAnswer() {
+   // if (browser == answerArray[count]) {
+    //  alert("You are correct");
+    //}
+    //else {
+     // alert("You are wrong");
+    //}
+
+ // }
